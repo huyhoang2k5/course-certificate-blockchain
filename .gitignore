@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# environment files
+.env
+server/.env
+*.local
+
+# build outputs
+build/
+client/build/
+server/uploads/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Truffle/Ganache local data
+.db/
+.openzeppelin/
