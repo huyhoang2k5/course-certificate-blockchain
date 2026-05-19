@@ -12,10 +12,22 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const allowedOrigins = new Set([
+  process.env.CLIENT_ORIGIN || "http://localhost:3000",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+]);
 
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.has(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`CORS blocked origin: ${origin}`));
+    },
   })
 );
 app.use(express.json({ limit: "2mb" }));
