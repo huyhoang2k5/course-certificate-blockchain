@@ -1,9 +1,10 @@
 const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
-const connectDatabase = require("../utils/connectDatabase");
-const User = require("../models/User");
 
 dotenv.config();
+
+const connectDatabase = require("../utils/connectDatabase");
+const User = require("../models/User");
 
 async function seedAdmin() {
   await connectDatabase();

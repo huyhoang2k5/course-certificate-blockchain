@@ -2,13 +2,14 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+
+dotenv.config();
+
 const connectDatabase = require("./utils/connectDatabase");
 const authRoutes = require("./routes/authRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const certificateRoutes = require("./routes/certificateRoutes");
 const saleRoutes = require("./routes/saleRoutes");
-
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;

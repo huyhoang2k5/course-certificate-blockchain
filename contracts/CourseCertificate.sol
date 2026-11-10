@@ -2,14 +2,17 @@
 pragma solidity ^0.8.19;
 
 contract CourseCertificate {
+    // Vi quan tri he thong va tong so khoa hoc da tao.
     address public admin;
     uint public courseCount;
 
+    // Gan admin khi deploy contract.
     constructor(address _admin) {
         require(_admin != address(0), "Admin address required");
         admin = _admin;
     }
 
+    // Thong tin mot khoa hoc.
     struct Course {
         uint id;
         string name;
@@ -19,6 +22,7 @@ contract CourseCertificate {
         bool isActive;
     }
 
+    // Thong tin chung chi duoc cap cho hoc vien.
     struct Certificate {
         string certCode;
         string studentName;
@@ -28,6 +32,7 @@ contract CourseCertificate {
         bool isValid;
     }
 
+    // Luu lich su mua khoa hoc.
     struct Sale {
         uint courseId;
         address buyer;
@@ -35,6 +40,7 @@ contract CourseCertificate {
         uint purchaseDate;
     }
 
+    // Ho so nguoi dung gan voi dia chi vi.
     struct UserProfile {
         string fullName;
         string email;
@@ -44,6 +50,7 @@ contract CourseCertificate {
         bool exists;
     }
 
+    // Cac bang du lieu chinh tren blockchain.
     mapping(uint => Course) public courses;
     mapping(string => Certificate) public certificates;
     mapping(address => mapping(uint => bool)) public purchasedCourses;
@@ -53,15 +60,18 @@ contract CourseCertificate {
     mapping(address => UserProfile) public userProfiles;
     mapping(string => bool) public certificateExists;
 
+    // Danh sach phuc vu trang admin/thong ke.
     address[] public allUsers;
     string[] public allCertificateCodes;
     Sale[] public sales;
 
+    // Chi admin moi duoc goi cac ham quan tri.
     modifier onlyAdmin() {
         require(msg.sender == admin, "Only admin");
         _;
     }
 
+    // Admin them khoa hoc moi.
     function addCourse(
         string memory _name,
         string memory _description,
@@ -80,11 +90,13 @@ contract CourseCertificate {
         );
     }
 
+    // Admin an khoa hoc, khong xoa du lieu cu tren blockchain.
     function deleteCourse(uint _courseId) public onlyAdmin {
         require(courses[_courseId].id != 0, "Course not found");
         courses[_courseId].isActive = false;
     }
 
+    // Nguoi dung dang ky ho so ca nhan.
     function registerUser(
         string memory _fullName,
         string memory _email,
@@ -106,6 +118,7 @@ contract CourseCertificate {
         );
     }
 
+    // Nguoi dung cap nhat ho so cua chinh minh.
     function updateMyProfile(
         string memory _fullName,
         string memory _email,
@@ -121,6 +134,7 @@ contract CourseCertificate {
         userProfiles[msg.sender].phone = _phone;
     }
 
+    // Nguoi dung mua khoa hoc bang ETH.
     function buyCourse(uint _courseId) public payable {
         Course memory course = courses[_courseId];
 
@@ -139,6 +153,7 @@ contract CourseCertificate {
         require(sent, "Payment transfer failed");
     }
 
+    // Admin cap chung chi cho hoc vien.
     function issueCertificate(
         string memory _certCode,
         string memory _studentName,
@@ -163,6 +178,7 @@ contract CourseCertificate {
         allCertificateCodes.push(_certCode);
     }
 
+    // Tra cuu/xac minh chung chi theo ma.
     function verifyCertificate(
         string memory _certCode
     )
@@ -182,18 +198,22 @@ contract CourseCertificate {
         );
     }
 
+    // Lay danh sach khoa hoc cua vi dang goi ham.
     function getMyCourses() public view returns (uint[] memory) {
         return userCourses[msg.sender];
     }
 
+    // Lay danh sach chung chi cua vi dang goi ham.
     function getMyCertificates() public view returns (string[] memory) {
         return userCertificates[msg.sender];
     }
 
+    // Admin xem tat ca nguoi dung.
     function getAllUsers() public view onlyAdmin returns (address[] memory) {
         return allUsers;
     }
 
+    // Xem ho so cua mot nguoi dung.
     function getUserProfile(
         address _user
     )
@@ -220,6 +240,7 @@ contract CourseCertificate {
         );
     }
 
+    // Admin lay tat ca ma chung chi da cap.
     function getAllCertificateCodes()
         public
         view
@@ -229,10 +250,12 @@ contract CourseCertificate {
         return allCertificateCodes;
     }
 
+    // Admin xem lich su ban khoa hoc.
     function getAllSales() public view onlyAdmin returns (Sale[] memory) {
         return sales;
     }
 
+    // Dang ky dia chi vi vao danh sach neu chua ton tai.
     function _registerUser(address _user) internal {
         if (!isRegisteredUser[_user]) {
             isRegisteredUser[_user] = true;

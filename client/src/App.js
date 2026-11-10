@@ -27,6 +27,7 @@ import {
   saveCourseApi,
   saveSaleApi,
   getCoursesApi,
+  getCertificatesApi,
   getUsersApi,
   getSalesApi,
   loginUserApi,
@@ -281,7 +282,7 @@ function App() {
         databaseCourses.map((course) => [String(course.blockchainCourseId), course])
       );
 
-      return blockchainCourses.map((course) => {
+      const mergedCourses = blockchainCourses.map((course) => {
         const databaseCourse = databaseCourseMap.get(String(course.id));
 
         if (!databaseCourse) {
@@ -295,6 +296,23 @@ function App() {
           imageUrl: databaseCourse.imageUrl || course.imageUrl,
         };
       });
+
+      const blockchainCourseIds = new Set(
+        blockchainCourses.map((course) => String(course.id))
+      );
+      const databaseOnlyCourses = databaseCourses
+        .filter((course) => !blockchainCourseIds.has(String(course.blockchainCourseId)))
+        .map((course) => ({
+          id: course.blockchainCourseId,
+          name: course.name,
+          description: course.description,
+          imageUrl: course.imageUrl,
+          price: course.priceWei,
+          isActive: course.isActive,
+          databaseOnly: true,
+        }));
+
+      return [...mergedCourses, ...databaseOnlyCourses];
     } catch (error) {
       return blockchainCourses;
     }
@@ -339,6 +357,7 @@ function App() {
     try {
       const { users } = await getUsersApi();
       const { sales } = await getSalesApi();
+      const { certificates } = await getCertificatesApi();
       const userProfiles = users
         .filter((user) => user.role !== "admin")
         .map((user) => ({
@@ -357,6 +376,15 @@ function App() {
         users: userProfiles.map((user) => user.walletAddress),
         userProfiles,
         sales,
+        certificateCodes: certificates.map((certificate) => certificate.certCode),
+        certificates: certificates.map((certificate) => [
+          certificate.certCode,
+          certificate.studentName,
+          certificate.courseName,
+          certificate.studentWallet,
+          Math.floor(new Date(certificate.issueDate).getTime() / 1000),
+          certificate.isValid,
+        ]),
       };
     } catch (error) {
       return nextAdminData;
@@ -460,6 +488,16 @@ function App() {
     }
 
     try {
+      const course = courses.find((item) => String(item.id) === String(courseId));
+
+      if (course?.databaseOnly) {
+        await deleteCourseApi(courseId);
+        await refreshCourses();
+        await refreshAdminData();
+        alert("Đã xóa khóa học");
+        return;
+      }
+
       const receipt = await removeCourse(contract, admin, courseId);
       await persistDatabase("trạng thái xóa khóa học", () =>
         deleteCourseApi(courseId, receipt.transactionHash)

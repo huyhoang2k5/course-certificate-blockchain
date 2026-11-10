@@ -1,4 +1,18 @@
 const mongoose = require("mongoose");
+const createFileModel = require("../utils/fileModel");
+
+if ((process.env.MONGODB_URI || "").startsWith("file:")) {
+  module.exports = createFileModel("courses", {
+    imagePath: "",
+    imageUrl: "",
+    adminWallet: "",
+    isActive: true,
+    txHash: "",
+    deletedTxHash: "",
+    deletedAt: null,
+  });
+  return;
+}
 
 const courseSchema = new mongoose.Schema(
   {

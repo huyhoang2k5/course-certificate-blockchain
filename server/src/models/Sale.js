@@ -1,4 +1,15 @@
 const mongoose = require("mongoose");
+const createFileModel = require("../utils/fileModel");
+
+if ((process.env.MONGODB_URI || "").startsWith("file:")) {
+  module.exports = createFileModel("sales", {
+    courseName: "",
+    buyerName: "",
+    purchaseDate: new Date().toISOString(),
+    txHash: "",
+  });
+  return;
+}
 
 const saleSchema = new mongoose.Schema(
   {

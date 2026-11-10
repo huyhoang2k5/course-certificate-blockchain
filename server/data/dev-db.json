@@ -1,0 +1,189 @@
+{
+  "users": [
+    {
+      "_id": "1779516761350-10851678",
+      "email": "admin123@gmail.com",
+      "avatarUrl": "",
+      "role": "admin",
+      "fullName": "EduCert Admin",
+      "phone": "0000000000",
+      "walletAddress": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "passwordHash": "$2a$10$74pnaleaMArCuLtrP1.lueTJGS4q5xxNb73ovtcM6gV8xw/wPNJ0m",
+      "createdAt": "2026-05-23T06:12:41.349Z",
+      "updatedAt": "2026-05-23T06:12:41.349Z"
+    },
+    {
+      "_id": "1779516761350-789000000",
+      "email": "admin789@gmail.com",
+      "avatarUrl": "",
+      "role": "admin",
+      "fullName": "EduCert Admin 789",
+      "phone": "0000000000",
+      "walletAddress": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "passwordHash": "$2a$10$74pnaleaMArCuLtrP1.lueTJGS4q5xxNb73ovtcM6gV8xw/wPNJ0m",
+      "createdAt": "2026-05-23T06:12:41.349Z",
+      "updatedAt": "2026-05-23T06:12:41.349Z"
+    }
+  ],
+  "courses": [
+    {
+      "_id": "course-1",
+      "blockchainCourseId": "1",
+      "name": "Chuyên đề 3 (BlockChain)",
+      "description": "Blockchain là hệ thống cơ sở dữ liệu phân tán lưu trữ thông tin trong các khối được liên kết bằng mật mã.",
+      "imagePath": "",
+      "imageUrl": "",
+      "priceWei": "50000000000000000",
+      "adminWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "isActive": true,
+      "txHash": "0x4d8dd77fa74874fc74f010bb8d971f8dc9301fb9d3e4770d184b5a4044d9d1b6",
+      "deletedTxHash": "",
+      "deletedAt": null,
+      "createdAt": "2026-05-18T19:48:17.393Z",
+      "updatedAt": "2026-05-23T05:29:25.241Z"
+    },
+    {
+      "_id": "course-2",
+      "blockchainCourseId": "2",
+      "name": "Blockchain thực tế",
+      "description": "Khóa học thực hành Blockchain và các tình huống ứng dụng thực tế.",
+      "imagePath": "",
+      "imageUrl": "",
+      "priceWei": "1000000000000000000",
+      "adminWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "isActive": true,
+      "txHash": "0xfa85e8e817b33f2321aa5ebbaec882ce971e6291daf241f6d55b182a3f04c2da",
+      "deletedTxHash": "",
+      "deletedAt": null,
+      "createdAt": "2026-05-18T19:55:58.946Z",
+      "updatedAt": "2026-05-23T06:04:14.987Z"
+    },
+    {
+      "_id": "course-3",
+      "blockchainCourseId": "3",
+      "name": "Trí tuệ nhân tạo và Machine Learning cơ bản",
+      "description": "Khóa học cung cấp kiến thức nền tảng về AI và Machine Learning.",
+      "imagePath": "",
+      "imageUrl": "",
+      "priceWei": "1000000000000000000",
+      "adminWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "isActive": true,
+      "txHash": "0xd59c35bbe35aa658a52236e8dc3de00ba07821af4d3a570d3b79d596baab1e2c",
+      "deletedTxHash": "",
+      "deletedAt": null,
+      "createdAt": "2026-05-18T20:30:07.935Z",
+      "updatedAt": "2026-05-18T20:30:07.935Z"
+    },
+    {
+      "_id": "course-5",
+      "blockchainCourseId": "5",
+      "name": "Solidity cho người mới bắt đầu",
+      "description": "Hướng dẫn ngôn ngữ lập trình Solidity từ cơ bản đến nâng cao.",
+      "imagePath": "",
+      "imageUrl": "",
+      "priceWei": "1000000000000000000",
+      "adminWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "isActive": true,
+      "txHash": "0x141f3690dfcb4f582320324ecf82b814b3e57b04a29ef7d1e0a0d18753cd5a90",
+      "deletedTxHash": "",
+      "deletedAt": null,
+      "createdAt": "2026-05-21T15:14:18.067Z",
+      "updatedAt": "2026-05-21T15:14:18.067Z"
+    },
+    {
+      "_id": "course-6",
+      "blockchainCourseId": "6",
+      "name": "An toàn bảo mật Blockchain",
+      "description": "Học cách phát hiện các lỗ hổng phổ biến trong Smart Contract và tăng cường bảo mật ứng dụng Blockchain.",
+      "imagePath": "",
+      "imageUrl": "",
+      "priceWei": "1000000000000000000",
+      "adminWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "isActive": true,
+      "txHash": "0x1992993c35f9ed4a9219b7aaacbc240c185dee021d6f72cb22cb12e8223e6277",
+      "deletedTxHash": "",
+      "deletedAt": null,
+      "createdAt": "2026-05-22T08:01:08.012Z",
+      "updatedAt": "2026-05-22T08:01:08.012Z"
+    }
+  ],
+  "certificates": [
+    {
+      "_id": "cert-ha002",
+      "certCode": "HA002",
+      "studentName": "minhhung",
+      "studentWallet": "0x3e33a8ed63b93d801ad41ff9f6e6a6c0203b4331",
+      "courseName": "Solidity",
+      "issuerWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "issueDate": "2026-05-23T05:36:42.718Z",
+      "isValid": true,
+      "txHash": "0x469b0c387ee6235094ef49836d28fa788378fb4c952b5b8a0d519811ad260164",
+      "createdAt": "2026-05-23T05:36:42.741Z",
+      "updatedAt": "2026-05-23T05:36:42.741Z"
+    },
+    {
+      "_id": "cert-c001",
+      "certCode": "C001",
+      "studentName": "hung",
+      "studentWallet": "0x00a94b9bbfd0e3eef11f0a43fd8d8ad1f5d5ba40",
+      "courseName": "Lập trình Smart Contract",
+      "issuerWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "issueDate": "2026-05-23T03:26:42.504Z",
+      "isValid": true,
+      "txHash": "0xee6def0f1e896fd359486e079f933b9236e25f73e17d5f6cac2b95f9199c4fbe",
+      "createdAt": "2026-05-23T03:26:42.530Z",
+      "updatedAt": "2026-05-23T03:26:42.530Z"
+    },
+    {
+      "_id": "cert-bc521",
+      "certCode": "BC521",
+      "studentName": "Lê Huy Hoàng",
+      "studentWallet": "0x4f1db3510eae45f6925258407cd7c8a597e690c2",
+      "courseName": "Solidity cho người mới bắt đầu",
+      "issuerWallet": "0xf6a32446c2ae288d4718d332f68738640eb85c17",
+      "issueDate": "2026-05-21T15:17:12.762Z",
+      "isValid": true,
+      "txHash": "0x763a8e429cfd207a25c34cb017ec7cf16c162b34901f6df35bbe1d0f0070e34b",
+      "createdAt": "2026-05-21T15:17:12.766Z",
+      "updatedAt": "2026-05-21T15:17:12.766Z"
+    }
+  ],
+  "sales": [
+    {
+      "_id": "sale-1",
+      "blockchainCourseId": "1",
+      "courseName": "Chuyên đề 3 (BlockChain)",
+      "buyerWallet": "0x3e33a8ed63b93d801ad41ff9f6e6a6c0203b4331",
+      "buyerName": "minhhung",
+      "priceWei": "50000000000000000",
+      "purchaseDate": "2026-05-23T05:34:34.723Z",
+      "txHash": "0xb787375cb29a5c517a146ef16fdcbc7292a89973fca31fad3218b6e7d83aac09",
+      "createdAt": "2026-05-23T05:34:34.758Z",
+      "updatedAt": "2026-05-23T05:34:34.758Z"
+    },
+    {
+      "_id": "sale-2",
+      "blockchainCourseId": "1",
+      "courseName": "Lập trình Smart Contract",
+      "buyerWallet": "0x00a94b9bbfd0e3eef11f0a43fd8d8ad1f5d5ba40",
+      "buyerName": "hung",
+      "priceWei": "50000000000000000",
+      "purchaseDate": "2026-05-22T08:07:52.685Z",
+      "txHash": "0xd56eecc1474be392ae0f96d34da8100cea684b04fbcfc7028313be581fd24284",
+      "createdAt": "2026-05-22T08:07:52.714Z",
+      "updatedAt": "2026-05-22T08:07:52.714Z"
+    },
+    {
+      "_id": "sale-3",
+      "blockchainCourseId": "5",
+      "courseName": "Solidity cho người mới bắt đầu",
+      "buyerWallet": "0x4f1db3510eae45f6925258407cd7c8a597e690c2",
+      "buyerName": "Lê Huy Hoàng",
+      "priceWei": "1000000000000000000",
+      "purchaseDate": "2026-05-21T15:15:50.762Z",
+      "txHash": "0xe680148942755cc204f03f9fdf16b6d681c1e87c65734230943863cfa50b41b1",
+      "createdAt": "2026-05-21T15:15:50.766Z",
+      "updatedAt": "2026-05-21T15:15:50.766Z"
+    }
+  ]
+}

@@ -1,4 +1,13 @@
 const mongoose = require("mongoose");
+const createFileModel = require("../utils/fileModel");
+
+if ((process.env.MONGODB_URI || "").startsWith("file:")) {
+  module.exports = createFileModel("users", {
+    avatarUrl: "",
+    role: "user",
+  });
+  return;
+}
 
 const userSchema = new mongoose.Schema(
   {

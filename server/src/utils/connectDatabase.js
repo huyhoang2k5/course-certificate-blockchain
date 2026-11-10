@@ -7,6 +7,11 @@ async function connectDatabase() {
     throw new Error("MONGODB_URI is missing");
   }
 
+  if (uri.startsWith("file:")) {
+    console.log("File database connected");
+    return;
+  }
+
   await mongoose.connect(uri);
   console.log("MongoDB connected");
 }
